@@ -1,4 +1,4 @@
-# actuarialpy
+# ActuarialPy
 
 A family of four small, composable Python libraries for actuarial and risk modeling —
 experience analysis, loss-distribution modeling, Monte Carlo risk simulation, and
