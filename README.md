@@ -17,7 +17,7 @@ Each package can also be installed and used on its own.
 
 ---
 
-## [actuarialpy](https://github.com/openactuarial/actuarialpy-core)
+## [actuarialpy](https://github.com/openactuarial/actuarialpy)
 
 Experience analysis on a single tidy table — you build one DataFrame and get views
 without re-pivoting. numpy and pandas only (no scipy).
