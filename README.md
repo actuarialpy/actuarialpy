@@ -1,11 +1,11 @@
-# ActuarialPy
+# OpenActuarial
 
 A family of four small, composable Python libraries for actuarial and risk modeling —
 experience analysis, loss-distribution modeling, Monte Carlo risk simulation, and
 extreme-value tail estimation. Each does one thing with a clean API; together they cover
 a full large-claim and pooling workflow.
 
-**Documentation: https://actuarialpy.github.io/docs/**
+**Documentation: https://openactuarial.github.io/docs/**
 
 ## Install
 
@@ -17,7 +17,7 @@ Each package can also be installed and used on its own.
 
 ---
 
-## [actuarialpy](https://github.com/actuarialpy/actuarialpy-core)
+## [actuarialpy](https://github.com/openactuarial/actuarialpy-core)
 
 Experience analysis on a single tidy table — you build one DataFrame and get views
 without re-pivoting. numpy and pandas only (no scipy).
@@ -47,7 +47,7 @@ ap.pmpm(df["paid"], df["member_months"])    # per-member-per-month
 
 ---
 
-## [lossmodels](https://github.com/actuarialpy/lossmodels)
+## [lossmodels](https://github.com/openactuarial/lossmodels)
 
 Severity and frequency distributions, maximum-likelihood fitting, goodness-of-fit, and
 collective-risk (compound) models — the loss-distribution toolkit from the FAM/STAM
@@ -71,7 +71,7 @@ model.mean(), model.var(0.99), model.tvar(0.99)
 
 ---
 
-## [risksim](https://github.com/actuarialpy/risksim)
+## [risksim](https://github.com/openactuarial/risksim)
 
 Monte Carlo simulation of portfolios of risk models, with reinsurance contracts and
 layers. Wrap any sampling model in a `PortfolioItem`, collect them into a `Portfolio`,
@@ -95,7 +95,7 @@ result.prob_exceeding(1_000_000)       # P(aggregate > 1M)
 
 ---
 
-## [extremeloss](https://github.com/actuarialpy/extremeloss)
+## [extremeloss](https://github.com/openactuarial/extremeloss)
 
 Extreme-value theory for loss data: peaks-over-threshold (generalized Pareto) and
 block-maxima (generalized extreme value) tail fitting, tail risk measures, rare-event
@@ -124,7 +124,7 @@ A typical large-claim and pooling analysis uses all four: `extremeloss` fits one
 book-wide tail, `lossmodels` turns a frequency and that severity into a collective-risk
 model, `risksim` simulates the portfolio and applies reinsurance layers, and
 `actuarialpy` handles the exposure, experience, and retained-stability side. See the
-[overview](https://actuarialpy.github.io/docs/overview/) for the full picture.
+[overview](https://openactuarial.github.io/docs/overview/) for the full picture.
 
 The libraries are general mathematics, kept public and reusable — they carry no data and
 no proprietary conventions. The same call runs on a synthetic demo or on real claims;
