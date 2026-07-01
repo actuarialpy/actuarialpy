@@ -1,9 +1,10 @@
 # OpenActuarial
 
 **Open-source actuarial tooling for Python** — a small, composable ecosystem for
-experience analysis, pricing, loss modeling, and capital, built on a shared core.
+experience analysis, pricing, loss modeling, and capital, organized around a
+shared core.
 
-📚 **Documentation: [openactuarial.org](https://openactuarial.org)**  ·  License: MIT
+📚 **Documentation: [openactuarial.org](https://openactuarial.org)** · License: MIT
 
 ---
 
@@ -11,27 +12,38 @@ experience analysis, pricing, loss modeling, and capital, built on a shared core
 
 | Package | What it does | Install |
 | --- | --- | --- |
-| **[actuarialpy](https://openactuarial.org/actuarialpy/)** | Experience analysis **and the shared core** — PMPM and loss-ratio metrics, trend, completion, seasonality, credibility, financial mathematics (time value of money), and exposure. Everything else builds on it. | `pip install actuarialpy` |
+| **[actuarialpy](https://openactuarial.org/actuarialpy/)** | Experience analysis **and the shared core** — PMPM and loss-ratio metrics, trend, completion, seasonality, credibility, financial mathematics (time value of money), and exposure. `ratingmodels` builds directly on it. | `pip install actuarialpy` |
 | **[ratingmodels](https://openactuarial.org/ratingmodels/)** | Group rate build-up and indication — manual and experience rating, an auditable build-up engine, GLM relativities, retention gross-up, and renewal. | `pip install ratingmodels` |
 | **[lossmodels](https://openactuarial.org/lossmodels/)** | Loss-distribution modeling — severity and frequency fitting, and aggregate loss. | `pip install lossmodels` |
 | **[extremeloss](https://openactuarial.org/extremeloss/)** | Extreme-value tail estimation — peaks-over-threshold / GPD and large-claim loading. | `pip install extremeloss` |
 | **[risksim](https://openactuarial.org/risksim/)** | Portfolio Monte Carlo simulation and risk measures. | `pip install risksim` |
 
-## How they fit together
+## How they compose
+
+Left to right, the packages trace one analysis — experience, pricing, loss, tail,
+and capital:
 
 ```mermaid
 flowchart LR
-    AP["actuarialpy<br/>experience"] --> RM["ratingmodels<br/>pricing"] --> LM["lossmodels<br/>loss"] --> EL["extremeloss<br/>tail"] --> RS["risksim<br/>capital"]
+    AP["actuarialpy<br/>experience"]:::core
+    RM["ratingmodels<br/>pricing"]
+    LM["lossmodels<br/>loss"]
+    EL["extremeloss<br/>tail"]
+    RS["risksim<br/>capital"]
+    AP --> RM --> LM --> EL --> RS
+    classDef core fill:#eaf2ff,stroke:#3a6ea5,stroke-width:2px,color:#1a1a1a
 ```
 
-`actuarialpy` is the foundation: cross-cutting primitives — credibility, trend,
-financial math, exposure — live there once, and the other packages depend on it
-rather than re-implementing them. Light dependencies throughout (numpy / pandas).
+The arrows are the analytical sequence, not install requirements. `actuarialpy`
+is the shared core — credibility, trend, financial math, and exposure live there
+once — and `ratingmodels` builds directly on it. `lossmodels`, `extremeloss`, and
+`risksim` install independently (`extremeloss` can optionally integrate
+`lossmodels` for severity splicing). Dependencies stay light throughout: numpy
+and pandas, with scipy where the loss and tail work needs it.
 
 ## A workflow across the ecosystem
 
-Credibility comes from the core; the rate build-up and indication come from
-`ratingmodels` — the two compose directly:
+Credibility comes from the core; the rate build-up and indication come from `ratingmodels` — the two compose directly:
 
 ```python
 import actuarialpy as ap
