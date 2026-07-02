@@ -12,11 +12,11 @@ shared core.
 
 | Package | What it does | Install |
 | --- | --- | --- |
-| **[actuarialpy](https://openactuarial.org/actuarialpy/)** | Experience analysis **and the shared core** — PMPM and loss-ratio metrics, trend, completion, seasonality, credibility, financial mathematics (time value of money), and exposure. `ratingmodels` builds directly on it. | `pip install actuarialpy` |
-| **[ratingmodels](https://openactuarial.org/ratingmodels/)** | Group rate build-up and indication — manual and experience rating, an auditable build-up engine, GLM relativities, retention gross-up, and renewal. | `pip install ratingmodels` |
-| **[lossmodels](https://openactuarial.org/lossmodels/)** | Loss-distribution modeling — severity and frequency fitting, and aggregate loss. | `pip install lossmodels` |
-| **[extremeloss](https://openactuarial.org/extremeloss/)** | Extreme-value tail estimation — peaks-over-threshold / GPD and large-claim loading. | `pip install extremeloss` |
-| **[risksim](https://openactuarial.org/risksim/)** | Portfolio Monte Carlo simulation and risk measures. | `pip install risksim` |
+| **[actuarialpy](https://openactuarial.org/actuarialpy.html)** | Experience analysis **and the shared core** — PMPM and loss-ratio metrics, trend, completion, seasonality, credibility, financial mathematics (time value of money), and exposure. `ratingmodels` builds directly on it. | `pip install actuarialpy` |
+| **[ratingmodels](https://openactuarial.org/ratingmodels.html)** | Group rate build-up and indication — manual and experience rating, an auditable build-up engine, GLM relativities, retention gross-up, and renewal. | `pip install ratingmodels` |
+| **[lossmodels](https://openactuarial.org/lossmodels.html)** | Loss-distribution modeling — severity and frequency fitting, and aggregate loss. | `pip install lossmodels` |
+| **[extremeloss](https://openactuarial.org/extremeloss.html)** | Extreme-value tail estimation — peaks-over-threshold / GPD and large-claim loading. | `pip install extremeloss` |
+| **[risksim](https://openactuarial.org/risksim.html)** | Portfolio Monte Carlo simulation and risk measures. | `pip install risksim` |
 
 ## How they compose
 
